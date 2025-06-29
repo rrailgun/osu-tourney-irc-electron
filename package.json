@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +14,47 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.6.0",
+    "electron-prompt": "^1.7.0",
     "express": "^5.1.0",
     "express-ws": "^5.0.2",
     "irc-framework": "^4.14.0",
     "ws": "^8.18.2"
   },
   "devDependencies": {
-    "electron": "^37.1.0"
+    "electron": "^37.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.rrailgun",
+    "productName": "Osu IRC Electron",
+    "asarUnpack": [
+      "server/**",
+      "ui-server.js"
+    ],
+    "files": [
+      "main.js",
+      "ui-server.js",
+      "ui/**/*",
+      "server/**/*",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
   }
 }
