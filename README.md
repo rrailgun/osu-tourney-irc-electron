@@ -1,0 +1,1 @@
+osu-tourney-irc folder in the release zip from https://github.com/rrailgun/osu-irc-web-client/releases should be placed in the ui folder on the root directory
